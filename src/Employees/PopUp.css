@@ -1,0 +1,36 @@
+
+.ccpu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(192, 160, 160, 0.2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+.ccpu_inner{
+    position: relative;
+    padding: 32px;
+    width: 40%;
+    height: 80%;
+    background-color: white;
+    overflow-y:scroll
+
+}
+.ccpu_close{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+.ccpu_inner > button {
+    display: flex;
+    margin-left: 40%;
+    margin-top: 5px;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+}
+.register_div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+.register_div > input{
+  width: 250px;
+  height: 30px;
+  font-size: 15px;
+  padding-left: 10px;
+
+}
+.register_div > button{
+  width: 100px;
+  height: 45px;
+  margin-top: 15px;
+}
+.register_div > button:hover{
+  cursor: pointer;
+}
