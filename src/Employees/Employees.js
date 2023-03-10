@@ -3,15 +3,16 @@ import {useState} from 'react'
 import PopUp from './CreateEmployeePopUp'
 import { Link } from "react-router-dom";
 import Axios from 'axios'
-import {YID} from '../Login'
 
 
 const Employees = () =>{
+    
     const [popUpb, setpopUpb] = useState(false)
     const [employeeListButton ,setEmployeeListButton] = useState([])
-    const CID = window.location.href.replace('http://localhost:3000/company/', '').replace('/employees','')
-
-    const getEmployeeList = () =>{
+    const setEID = (EID) =>{
+        localStorage.setItem('EID', JSON.stringify(EID))
+    }
+    const getEmployeeList = (YID,CID) =>{
         var tempList = []
         var tempList3 = [{}]
 
@@ -62,9 +63,12 @@ const Employees = () =>{
         
     }
     useEffect(() =>{
-        getEmployeeList();
+        getEmployeeList(localStorage.getItem('YID'),localStorage.getItem('CID'));
     }, [])
-
+    useEffect(() =>{
+        console.log('ok')
+        getEmployeeList(localStorage.getItem('YID'),localStorage.getItem('CID'));
+        }, [popUpb])
     return (
         <div>
             <button onClick={() => setpopUpb(true)}>Add employees</button>
@@ -75,10 +79,10 @@ const Employees = () =>{
                 (<div>  
                     <p>Employees:</p>
                     {employeeListButton.map((val, key) =>(
-                        (YID === val.id ? (
+                        (localStorage.getItem('YID') === JSON.stringify(val.id) ? (
                             null
                         ):(
-                            <Link to={`${val.id}`} key={key} ><button >{val.name}</button></Link>
+                            <Link to={`${val.name}`} key={key} ><button onClick={() => setEID(val.id)}>{val.name}</button></Link>
                         ))
                        
                     ))}

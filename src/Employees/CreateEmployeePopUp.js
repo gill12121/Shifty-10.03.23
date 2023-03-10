@@ -29,7 +29,7 @@ const CreateCompanyPopUp = (props) =>{
     const [popUpb, setpopUpb] = useState(false)
 
 
-    const CID = window.location.href.replace('http://localhost:3000/company/', '').replace('/employees','')
+    const CID = localStorage.getItem('CID')
     const getDepartmentList = () =>{
         var tempList = []
         var i = 0
@@ -119,10 +119,7 @@ const CreateCompanyPopUp = (props) =>{
         getEmployeeList();
         getPermissionList();
     },[])
-    useEffect(() =>{
-        console.log("render")
-     
-    })
+    
     const Submit = () =>{
         
 
@@ -233,7 +230,7 @@ const CreateCompanyPopUp = (props) =>{
             <p>Employee birthday: </p>
             <input type="date" onChange={(event) => {setBirthday(event.target.value)}}></input>
 
-            <p>Employees</p>
+            <p>Employees: </p>
             <MultiAutocomplete  suggestions={employeeList} setP={setEmployee} p={employee} setEL={setEmployeeList} 
             getEL={employeeList}/>
             {employee.length ? (
@@ -241,8 +238,8 @@ const CreateCompanyPopUp = (props) =>{
                 <p>employee</p>
                 <p>{employee} </p>
                 </div>
-            ):(null)}
-            <p>Managers</p>
+            ):('')}
+            <p>Managers: </p>
             <MultiAutocomplete  suggestions={employeeList} setP={setManager} p={manager} setEL={setEmployeeList} 
             getEL={employeeList}/>
             {manager.length ? (

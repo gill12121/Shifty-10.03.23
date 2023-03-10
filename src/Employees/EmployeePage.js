@@ -3,8 +3,8 @@ import {useState, useEffect} from 'react'
 import Axios from 'axios'
 const EmployeePage = (props) =>{
     var tempID = window.location.href.replace('http://localhost:3000/company/', '').split('/employees/')
-    const CID = tempID[0]
-    const EID = tempID[1]
+    const CID = localStorage.getItem('CID')
+    const EID = localStorage.getItem('EID')
     const [employeeInfo, setEmployeeInfo] = useState({})
 
     const Information = () =>{

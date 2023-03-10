@@ -1,0 +1,28 @@
+.days{
+    display: flex;
+    width: 70%;
+    padding-left: 100px;
+}
+.days > p{
+    width: 35%;
+}
+.hours{
+    width: 100px;
+   
+}
+.hour-button{
+    display: flex;
+    
+}
+.buttons > button{
+    width: 120px;
+    height: 35px;
+    display: flex;
+}
+.buttons{
+   padding-left: 30px;
+}
+.hour-button > .hours{
+    display: block;
+    
+}

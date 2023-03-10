@@ -1,13 +1,12 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import {YID} from '../Login'
 import Axios from 'axios'
 import {Link} from 'react-router-dom'
 
 
 const Permissions = () =>{
     const [listPermission, setListPermission] = useState([{}])
-    const CID = window.location.href.replace('http://localhost:3000/company/', '').replace('/permissions','')
+    const CID = localStorage.getItem('CID')
 
     const getPermissionList = () =>{
         var tempList = []
@@ -33,7 +32,7 @@ const Permissions = () =>{
 
     return (
         <div>
-            <h4>Here you can customize your company's permissions </h4>
+            <h4>In this page you can customize your company's permissions </h4>
             <button>Create permissions</button>
             <br/><br/>
             {listPermission.map((val, key) =>(

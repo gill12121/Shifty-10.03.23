@@ -3,7 +3,6 @@ import Axios from 'axios'
 import React from 'react';
 import { Link} from 'react-router-dom';
 
-export var YID;
 const Login = () =>{
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -20,7 +19,7 @@ const Login = () =>{
                 return
             }
             if(password === response.data[0].password){
-                YID = response.data[0].id
+                localStorage.setItem('YID', JSON.stringify(response.data[0].id))
                 setApproved(true)
                 
             }
