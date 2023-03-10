@@ -18,7 +18,7 @@ app.post('/create', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
     const email = req.body.email;
-    const permission = 'owner'
+    const permission = 'Owner'
     const phone = req.body.phone;
     const birthday = req.body.birthday
 
@@ -407,8 +407,8 @@ app.post('/setPermissionFirstUser', (req, res) =>{
 })
 app.post('/setCompanyDefaultPermission', (req, res) =>{
     const CID = req.body.CID
-    db.query('INSERT INTO permission_type (company_id, permission_type,rank_order, create_company, create_employee, employee_list) VALUES (?,Owner,1,1,1,1),(?,Manager,2,0,1,1),(?,Employee,3,0,0,0)',
-    [CID],(err, result) => {
+    db.query('INSERT INTO permission_type (company_id, permission_type,rank_order, create_company, create_employee, employee_list) VALUES (?,"Owner",1,1,1,1),(?,"Manager",2,0,1,1),(?,"Employee",3,0,0,0)',
+    [CID,CID,CID],(err, result) => {
         if(err){
             console.log(err)
         }else{
@@ -440,7 +440,6 @@ app.post('/getPermissionToNewUser', (req, res) =>{
             console.log(err)
         }else{
             res.send(result)
-            console.log(result)
         }
      })
     
@@ -458,6 +457,175 @@ app.post('/setPermissionToNewUser', (req, res) =>{
         }else{
             res.send(result)
             
+        }
+     })
+    
+})
+
+app.post('/getWorkTimeWCID', (req, res) =>{
+    const CID = req.body.CID
+
+    db.query('SELECT * FROM shifty.work_time where company_id in (?)',
+    [CID],(err, result) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+        }
+     })
+    
+})
+app.post('/setWorkTimeWCID', (req, res) =>{
+    const CID = req.body.CID
+
+    db.query('INSERT INTO work_time (company_id, first_time) VALUES (?,0)',
+    [CID],(err, result) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+        }
+     })
+    
+})
+//sunday
+app.post('/setFirstWorkTimeSun', (req, res) =>{
+    const CID = req.body.CID
+    const S = req.body.S
+    const E = req.body.E
+    const A = req.body.A
+    db.query('UPDATE shifty.work_time SET sunday_start = (?), sunday_end = (?), sunday_active = (?) WHERE (company_id = ?);',
+    [S,E,A,CID],(err, result) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+        }
+     })
+    
+})
+//monday
+app.post('/setFirstWorkTimeMon', (req, res) =>{
+    const CID = req.body.CID
+    const S = req.body.S
+    const E = req.body.E
+    const A = req.body.A
+    db.query('UPDATE shifty.work_time SET monday_start = (?), monday_end = (?), monday_active = (?) WHERE (company_id = ?);',
+    [S,E,A,CID],(err, result) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+        }
+     })
+    
+})
+//tuesday
+app.post('/setFirstWorkTimeTue', (req, res) =>{
+    const CID = req.body.CID
+    const S = req.body.S
+    const E = req.body.E
+    const A = req.body.A
+    db.query('UPDATE shifty.work_time SET tuesday_start = (?), tuesday_end = (?), tuesday_active = (?) WHERE (company_id = ?);',
+    [S,E,A,CID],(err, result) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+        }
+     })
+    
+})
+//wednesday
+app.post('/setFirstWorkTimeWed', (req, res) =>{
+    const CID = req.body.CID
+    const S = req.body.S
+    const E = req.body.E
+    const A = req.body.A
+    db.query('UPDATE shifty.work_time SET wednesday_start = (?), wednesday_end = (?), wednesday_active = (?) WHERE (company_id = ?);',
+    [S,E,A,CID],(err, result) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+        }
+     })
+    
+})
+//thursday
+app.post('/setFirstWorkTimeThu', (req, res) =>{
+    const CID = req.body.CID
+    const S = req.body.S
+    const E = req.body.E
+    const A = req.body.A
+    db.query('UPDATE shifty.work_time SET thursday_start = (?), thursday_end = (?), thursday_active = (?) WHERE (company_id = ?);',
+    [S,E,A,CID],(err, result) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+        }
+     })
+    
+})
+//friday
+app.post('/setFirstWorkTimefri', (req, res) =>{
+    const CID = req.body.CID
+    const S = req.body.S
+    const E = req.body.E
+    const A = req.body.A
+    db.query('UPDATE shifty.work_time SET friday_start = (?), friday_end = (?), friday_active = (?) WHERE (company_id = ?);',
+    [S,E,A,CID],(err, result) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+        }
+     })
+    
+})
+//saturday
+app.post('/setFirstWorkTimeSat', (req, res) =>{
+    const CID = req.body.CID
+    const S = req.body.S
+    const E = req.body.E
+    const A = req.body.A
+    db.query('UPDATE shifty.work_time SET saturday_start = (?), saturday_end = (?), saturday_active = (?) WHERE (company_id = ?);',
+    [S,E,A,CID],(err, result) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+        }
+     })
+    
+})
+//test
+app.post('/setFirstWorkTimeTest', (req, res) =>{
+    const CID = req.body.CID
+    const S = req.body.S
+    const E = req.body.E
+    const A = req.body.A
+    const day =req.body.day
+    db.query(`UPDATE shifty.work_time SET ${day}_start = (?), ${day}_end = (?), ${day}_active = (?) WHERE (company_id = ?);`,
+    [S,E,A,CID, day],(err, result) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+        }
+     })
+    
+})
+//change first time 
+app.post('/setFirstWorkTimeFT', (req, res) =>{
+    const CID = req.body.CID
+    db.query('UPDATE shifty.work_time SET first_time = 1 WHERE (company_id = ?);',
+    [CID],(err, result) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
         }
      })
     
