@@ -8,4 +8,4 @@ Has a weekly calendar which can be customized
 
 Problems: 
 Currently unfinished,
-Need the exact database structure to run it 
+Needs the exact database structure to run it 
