@@ -7,5 +7,5 @@ Once a user is created he is integrated with his company, can login and operate 
 Has a weekly calendar which can be customized
 
 Problems: 
-Currently unfinished,
-Needs the exact database structure to run it 
+Only structure to explore the concept.
+Can only run with proper dbs
