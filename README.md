@@ -2,9 +2,10 @@ Shift management
 ====================
 A react web app structure that helps organize  your company's shifts.
 Integrated with a database, Has a login and registertion page.
-Can create new companies and add users with permissions.
+Can create new companies.
+Add users with customizable fill out from for eath company.
 Once a user is created he is integrated with his company, can login and operate as authorise.
-Has a weekly calendar which can be customized
+Has a weekly calendar which can be customized.
 
 Problems
 --------
