@@ -6,11 +6,13 @@ Can create new companies and add users with permissions.
 Once a user is created he is integrated with his company, can login and operate as authorise.
 Has a weekly calendar which can be customized
 
-Problems: 
+Problems
+--------
 Only structure to explore the concept.
 Can only run with proper dbs
 
-How to run:
+How to run
+-----------
 Open a folder in your programming software.
 Put the server folder (from git hub) inside the folder, Then open another folders called "client" next to the server folder.
 inside the client folder open the terminal and write "npx create-react-app my-app .".
